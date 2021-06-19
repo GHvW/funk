@@ -16,12 +16,11 @@ namespace Funk {
             (x) => f(g(x));
 
 
-        public static Func<(A, B), C> Tupled<A, B, C>(this Func<A, B, C> fn) {
-            return data => {
-                var (a, b) = data;
-                return fn(a, b);
-            };
-        }
+        public static Func<(A, B), C> Tupled<A, B, C>(this Func<A, B, C> fn) =>
+            (data) => fn(data.Item1, data.Item2);
+
+        public static Func<(A, B, C), D> Tupled<A, B, C, D>(this Func<A, B, C, D> fn) =>
+            (data) => fn(data.Item1, data.Item2, data.Item3);
 
 
         public static Func<A, Func<B, C>> Curry<A, B, C>(this Func<A, B, C> fn) =>
