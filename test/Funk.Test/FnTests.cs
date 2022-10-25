@@ -8,7 +8,7 @@ using Xunit;
 
 namespace Funk.Test {
 
-    public class FuncExtensionsTests {
+    public class FnTests {
 
         public static class Adder {
 
